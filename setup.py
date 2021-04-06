@@ -43,7 +43,7 @@ setup(
     author='Neongecko',
     author_email='developers@neon.ai',
     description=long_description,
-    packaage_data={'', ["*.py"]},
+    package_data={'', ["*.py"]},
     include_package_data=True,
     entry_points={
         'console_scripts': [
