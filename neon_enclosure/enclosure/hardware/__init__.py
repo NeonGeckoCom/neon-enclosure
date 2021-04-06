@@ -16,36 +16,3 @@
 # Specialized conversational reconveyance options from Conversation Processing Intelligence Corp.
 # US Patents 2008-2021: US7424516, US20140161250, US20140177813, US8638908, US8068604, US8553852, US10530923, US10530924
 # China Patent: CN102017585  -  Europe Patent: EU2156652  -  Patents Pending
-
-from setuptools import setup, find_packages
-
-with open("README.md", "r") as f:
-    long_description = f.read()
-
-with open("./version.py", "r", encoding="utf-8") as v:
-    for line in v.readlines():
-        if line.startswith("__version__"):
-            if '"' in line:
-                version = line.split('"')[1]
-            else:
-                version = line.split("'")[1]
-
-with open("./requirements.txt", "r", encoding="utf-8") as r:
-    requirements = r.readlines()
-
-setup(
-    name='neon-enclosure',
-    version=version,
-    packages=find_packages(),
-    url='https://github.com/NeonGeckoCom/neon-enclosure',
-    license='NeonAI License v1.0',
-    install_requires=requirements,
-    author='Neongecko',
-    author_email='developers@neon.ai',
-    description=long_description,
-    entry_points={
-        'console_scripts': [
-            'neon_enclosure_client=neon_enclosure.client.enclosure.__main__:main'
-        ]
-    }
-)
