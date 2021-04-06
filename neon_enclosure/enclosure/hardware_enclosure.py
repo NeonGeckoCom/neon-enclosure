@@ -36,7 +36,7 @@ class HardwareEnclosure:
         self.last_action = time.time()
         self.last_mute = -1
 
-        driver_dir = "neon-enclosure.enclosure.hardware"
+        driver_dir = "neon_enclosure.enclosure.hardware"
 
         capabilities_module = driver_dir + ".%s" % (self.enclosure_type,)
         module = importlib.import_module(capabilities_module)
