@@ -47,7 +47,7 @@ setup(
     include_package_data=True,
     entry_points={
         'console_scripts': [
-            'neon_enclosure=neon_enclosure.client.enclosure.__main__:main'
+            'neon_enclosure_client=neon_enclosure.client.enclosure.__main__:main'
         ]
     }
 )
