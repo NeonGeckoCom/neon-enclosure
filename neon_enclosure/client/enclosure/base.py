@@ -24,7 +24,7 @@ from ovos_utils import create_daemon
 from neon_utils import LOG
 from neon_utils.configuration_utils import get_mycroft_compatible_config
 # from mycroft.configuration import Configuration
-from mycroft.util import start_message_bus_client  # TODO: Reference in mycroft-bus-client? DM
+# from mycroft.util import start_message_bus_client
 
 
 Namespace = namedtuple('Namespace', ['name', 'pages'])
@@ -107,7 +107,8 @@ class Enclosure:
         """Start the Enclosure after it has been constructed."""
         # Allow exceptions to be raised to the Enclosure Service
         # if they may cause the Service to fail.
-        start_message_bus_client("ENCLOSURE", self.bus)
+        self.bus.run_in_thread()
+        # start_message_bus_client("ENCLOSURE", self.bus)
 
     def stop(self):
         """Perform any enclosure shutdown processes."""
