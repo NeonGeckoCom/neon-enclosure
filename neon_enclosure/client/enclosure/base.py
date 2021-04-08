@@ -63,6 +63,11 @@ class Enclosure:
         config = get_mycroft_compatible_config()
         self.lang = config['lang']
         self.config = config.get("enclosure")
+        LOG.info(config)
+        config["gui_websocket"] = config.get("gui_websocket", {"host": "0.0.0.0",
+                                                               "base_port": 18181,
+                                                               "route": "/gui",
+                                                               "ssl": False})
         config['gui_websocket']["base_port"] = config["gui_websocket"].get("base_port",
                                                                            config["gui_websocket"].get("port"))
         self.global_config = config
