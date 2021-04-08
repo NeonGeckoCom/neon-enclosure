@@ -63,10 +63,8 @@ class Enclosure:
         config = get_mycroft_compatible_config()
         self.lang = config['lang']
         self.config = config.get("enclosure")
-        config['gui_websocket'] = config.get("gui_websocket", {"host": config["gui"]["host"],
-                                                               "base_port": config["gui"]["base_port"],
-                                                               "route": config["gui"]["route"],
-                                                               "ssl": config["gui"]["ssl"]})
+        config['gui_websocket']["base_port"] = config["gui_websocket"].get("base_port",
+                                                                           config["gui_websocket"].get("port"))
         self.global_config = config
 
         # Create Message Bus Client
