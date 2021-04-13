@@ -68,7 +68,7 @@ class Enclosure:
                                                                "route": "/gui",
                                                                "ssl": False})
         config['gui_websocket']["base_port"] = config["gui_websocket"].get("base_port",
-                                                                           config["gui_websocket"].get("port"))
+                                                                           config["gui_websocket"].get("port", 18181))
 
         self.global_config = config
 
