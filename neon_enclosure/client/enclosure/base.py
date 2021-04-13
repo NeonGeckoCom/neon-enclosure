@@ -24,7 +24,6 @@ from ovos_utils import create_daemon
 from neon_utils import LOG
 from neon_utils.configuration_utils import get_mycroft_compatible_config
 # from mycroft.configuration import Configuration
-# from mycroft.util import start_message_bus_client
 
 
 Namespace = namedtuple('Namespace', ['name', 'pages'])
@@ -70,6 +69,7 @@ class Enclosure:
                                                                "ssl": False})
         config['gui_websocket']["base_port"] = config["gui_websocket"].get("base_port",
                                                                            config["gui_websocket"].get("port"))
+
         self.global_config = config
 
         # Create Message Bus Client
@@ -115,7 +115,6 @@ class Enclosure:
         # Allow exceptions to be raised to the Enclosure Service
         # if they may cause the Service to fail.
         self.bus.run_in_thread()
-        # start_message_bus_client("ENCLOSURE", self.bus)
 
     def stop(self):
         """Perform any enclosure shutdown processes."""
